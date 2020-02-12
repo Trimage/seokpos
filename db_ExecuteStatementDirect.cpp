@@ -6,7 +6,7 @@ bool PODBC::ExecuteStatementDirect(SQLCHAR* sql) {
 
 		retcode = SQLAllocHandle(SQL_HANDLE_STMT, hdbc, &hstmt);
 
-		printf("Connect Success\n");
+		// printf("Connect Success\n");
 
 	}
 
@@ -25,7 +25,7 @@ bool PODBC::ExecuteStatementDirect(SQLCHAR* sql) {
 
 	if (retcode == SQL_SUCCESS) {
 
-		printf("Query Seuccess\n");
+		// printf("Query Seuccess\n");
 
 	}
 

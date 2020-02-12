@@ -10,10 +10,7 @@ int main() {
 	PRODUCT product;
 	RECEIPT receipt;
 
-	product.addition(podbc);
-	product.allview(podbc);
-	product.adjust(podbc);
-	receipt.receiptview(podbc);
+	receipt.order(podbc);
 	
 	/*
 	while (1) {
