@@ -10,11 +10,7 @@ void PODBC::DisconnectDataSource() {
 
 	}
 
-
-
 	SQLDisconnect(hdbc);
-
-
 
 	if (hdbc) {
 

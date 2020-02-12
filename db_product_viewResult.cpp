@@ -1,6 +1,8 @@
 #include "dbbase.h"
 
-void PODBC::db_product_viewResult() {
+int PODBC::db_product_viewResult() {
+
+	int cnt = 0;
 
 	short product_id;
 
@@ -21,16 +23,20 @@ void PODBC::db_product_viewResult() {
 
 	SQLBindCol(hstmt, 4, SQL_C_SHORT, &product_stock, sizeof(product_stock), &pds);
 
-	cout << "\n───────────────────────────────────────────────────────\n";
-	printf("상품번호\t상품명\t\t단가\t\t재고");
-
 	retcode = SQLFetch(hstmt);
+	if (retcode == SQL_NO_DATA) return cnt;
+
+	cout << "\n----------------------------------------------------------------------------\n";
+	printf("상품번호\t상품명\t\t단가\t\t재고");
 
 	while (retcode != SQL_NO_DATA) {
 		printf("\n%d\t\t%s\t%d\t\t%d", product_id, product_name, product_price, product_stock);
 		retcode = SQLFetch(hstmt);
+		cnt++;
 	}
+	cout << "\n----------------------------------------------------------------------------\n";
 
 	SQLFreeStmt(hstmt, SQL_UNBIND);
 
+	return cnt;
 }

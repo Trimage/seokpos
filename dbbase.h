@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <sqlext.h>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -39,11 +40,9 @@ public:
 	void RetrieveResult();
 
 	void findproductResult();
-	void db_product_viewResult();
+	int db_product_viewResult();
 	void db_receipt_viewResult();
-	void findpayResult();
-	void findrepundResult();
-	void findallpayResult();
+	void db_receipt_sumResult();
 
 	void DisconnectDataSource();
 

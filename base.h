@@ -4,7 +4,6 @@
 #include "dbbase.h"
 #include <string>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -23,27 +22,16 @@ public :
 	void allview(PODBC &podbc);	// 모든 상품 보기
 };
 
-class ORDER
-{
-	string receiptnum;	//영수증번호
-	int product_num;	//상품번호
-	int turn;	//순번
-	int amount;	//수량
-	int price;	//상품금액
-
-public :
-	void sell(PODBC &podbc);	// 상품판매
-	void refund();	// 상품환불
-};
-
 class RECEIPT {
-	string paydate;		// 결제일
-	int receiptnum;	// 영수증번호
-	string pay_or_refund; //매출유무
-	int product_num;	// 상품번호
-	int paytime;		// 결제시간
-	string payoption;		// 결제방식
-	int payprice;		// 총결제금액
+	int paydate;		// 결제일
+	int posnum;			// POS기 번호
+	int receiptnum;		// 영수증번호
+	string paytime;		// 결제시간
+	int no;				// 순번
+	string pruduct_name; // 상품명
+	int unit_price;		//상품단가
+	int amount;			// 상품수량
+	int payprice;		// 금액
 
 public :
 	void receiptview(PODBC &podbc);	//영수증조회

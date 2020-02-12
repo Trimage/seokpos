@@ -42,5 +42,6 @@ void PRODUCT::find(PODBC &podbc) {
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "조회를 실패하였습니다.";
 
-	podbc.db_product_viewResult();
+	if (podbc.db_product_viewResult() == 0)
+		cout << "조회결과가 비어있습니다.\n\n";
 }

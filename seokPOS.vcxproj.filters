@@ -60,7 +60,10 @@
     <ClCompile Include="db_receipt_viewResult.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="order_sell.cpp">
+    <ClCompile Include="product_del.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="db_receipt_sumResult.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
