@@ -23,7 +23,7 @@ void PODBC::AllocateHandles() {
 
 			if (retcode == SQL_SUCCESS || retcode == SQL_SUCCESS_WITH_INFO) {
 
-				printf("Allocate Success\n");
+				// printf("Allocate Success\n");
 
 			}
 

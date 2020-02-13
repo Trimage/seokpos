@@ -25,8 +25,12 @@
     <ClCompile Include="db_ExecuteStatement.cpp" />
     <ClCompile Include="db_ExecuteStatementDirect.cpp" />
     <ClCompile Include="db_product_viewResult.cpp" />
+    <ClCompile Include="db_receipt_order_productname.cpp" />
+    <ClCompile Include="db_receipt_order_receiptnum.cpp" />
+    <ClCompile Include="db_receipt_order_unitprice.cpp" />
     <ClCompile Include="db_receipt_sumResult.cpp" />
     <ClCompile Include="db_receipt_viewResult.cpp" />
+    <ClCompile Include="db_profit_viewResult.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="db_PrepareStatement.cpp" />
     <ClCompile Include="product_adjust.cpp" />
@@ -35,6 +39,13 @@
     <ClCompile Include="product_allview.cpp" />
     <ClCompile Include="product_del.cpp" />
     <ClCompile Include="product_find.cpp" />
+    <ClCompile Include="profit_current_view.cpp" />
+    <ClCompile Include="profit_day_view.cpp" />
+    <ClCompile Include="profit_insert.cpp" />
+    <ClCompile Include="profit_month_view.cpp" />
+    <ClCompile Include="profit_year_view.cpp" />
+    <ClCompile Include="receipt_info_output.cpp" />
+    <ClCompile Include="receipt_order.cpp" />
     <ClCompile Include="receipt_view.cpp" />
   </ItemGroup>
   <ItemGroup>

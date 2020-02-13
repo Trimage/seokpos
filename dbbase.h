@@ -5,6 +5,7 @@
 #include <sqlext.h>
 #include <iostream>
 #include <string>
+#include <time.h>
 
 using namespace std;
 
@@ -43,6 +44,10 @@ public:
 	int db_product_viewResult();
 	void db_receipt_viewResult();
 	void db_receipt_sumResult();
+	int db_profit_viewResult();
+	int db_receipt_order_receiptnum();
+	int db_receipt_order_unitprice();
+	string db_receipt_order_productname();
 
 	void DisconnectDataSource();
 

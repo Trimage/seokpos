@@ -5,8 +5,11 @@ void PRODUCT::del(PODBC &podbc) {
 	string str; //SQL명령문을 저장할 공간
 	char cstr[200]; // //SQL명령문을 실행하기 위한 캐스트
 
+	allview(podbc);
+
 	podbc.AllocateHandles();
 	podbc.ConnectDataSource();
+	
 
 	cout << "제거할 상품코드를 입력해주세요 : ";
 	cin >> product_num;

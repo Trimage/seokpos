@@ -9,11 +9,19 @@ int main() {
 	PODBC podbc;
 	PRODUCT product;
 	RECEIPT receipt;
+	PROFIT profit;
 
-	product.addition(podbc);
-	product.allview(podbc);
-	product.adjust(podbc);
-	receipt.receiptview(podbc);
+	profit.current_view(podbc);
+	cout << "\n\n\n";
+
+	profit.day_view(podbc);
+	cout << "\n\n\n";
+
+	profit.month_view(podbc);
+	cout << "\n\n\n";
+
+	profit.year_view(podbc);
+	cout << "\n\n\n";
 	
 	/*
 	while (1) {

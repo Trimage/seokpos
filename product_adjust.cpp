@@ -29,7 +29,7 @@ void PRODUCT::adjust(PODBC &podbc) {
 
 			str = "UPDATE 상품정보 SET 상품명 = '";
 			str += name + "' WHERE 상품번호=" + to_string(product_num);
-
+			
 			menu = 0;
 			break;
 
