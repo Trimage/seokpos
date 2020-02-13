@@ -4,24 +4,24 @@ int PODBC::db_product_viewResult() {
 
 	int cnt = 0;
 
-	short product_id;
+	int product_id;
 
 	char product_name[30];
 
-	short product_price;
+	int product_price;
 
-	short product_stock;
+	int product_stock;
 
 	SQLLEN pdi, pdn, pdp, pds;
 
 
-	SQLBindCol(hstmt, 1, SQL_C_SHORT, &product_id, sizeof(product_id), &pdi);
+	SQLBindCol(hstmt, 1, SQL_C_LONG, &product_id, sizeof(product_id), &pdi);
 
 	SQLBindCol(hstmt, 2, SQL_C_CHAR, &product_name, sizeof(product_name), &pdn);
 
-	SQLBindCol(hstmt, 3, SQL_C_SHORT, &product_price, sizeof(product_price), &pdp);
+	SQLBindCol(hstmt, 3, SQL_C_LONG, &product_price, sizeof(product_price), &pdp);
 
-	SQLBindCol(hstmt, 4, SQL_C_SHORT, &product_stock, sizeof(product_stock), &pds);
+	SQLBindCol(hstmt, 4, SQL_C_LONG, &product_stock, sizeof(product_stock), &pds);
 
 	retcode = SQLFetch(hstmt);
 	if (retcode == SQL_NO_DATA) return cnt;
