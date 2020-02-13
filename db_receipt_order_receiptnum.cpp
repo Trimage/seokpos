@@ -4,11 +4,11 @@ int PODBC::db_receipt_order_receiptnum() {
 	
 	int getnum;
 
-	short receiptnum;
+	int receiptnum;
 
 	SQLLEN ren;
 
-	SQLBindCol(hstmt, 1, SQL_C_SHORT, &receiptnum, sizeof(receiptnum), &ren);
+	SQLBindCol(hstmt, 1, SQL_C_LONG, &receiptnum, sizeof(receiptnum), &ren);
 
 	retcode = SQLFetch(hstmt);
 
@@ -17,7 +17,7 @@ int PODBC::db_receipt_order_receiptnum() {
 		return 0;
 	}
 
-	if (receiptnum > 0) getnum = (int)receiptnum;
+	if (receiptnum > 0) getnum = receiptnum;
 	else getnum = 1;
 
 	SQLFreeStmt(hstmt, SQL_UNBIND);

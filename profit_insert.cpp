@@ -10,13 +10,6 @@ int PROFIT::insert(int total, int cnt, RECEIPT &receipt, PODBC &podbc) {
 
 	int menu; // 결제 방식 선택하면서 사용
 
-	/*
-	int paydate;		// 결제일
-	int posnum;			// POS기 번호
-	int receiptnum;		// 영수증번호
-	string pay_type;	// 결제방식
-	int paymoney;			//결제금액
-	*/
 
 	paydate = receipt.info_paydate_output();
 	posnum = receipt.info_posnum_output();
@@ -47,7 +40,7 @@ int PROFIT::insert(int total, int cnt, RECEIPT &receipt, PODBC &podbc) {
 
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "등록할 수 없습니다.";
-	else cout << "등록이 완료 되었습니다.\n";
+	else cout << pay_type << "결제가 완료 되었습니다.\n";
 
 	return total - paymoney;
 }

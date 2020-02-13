@@ -4,11 +4,11 @@ int PODBC::db_receipt_order_unitprice() {
 	
 	int order_price;
 
-	short unit_price;
+	int unit_price;
 
 	SQLLEN up;
 
-	SQLBindCol(hstmt, 1, SQL_C_SHORT, &unit_price, sizeof(unit_price), &up);
+	SQLBindCol(hstmt, 1, SQL_C_LONG, &unit_price, sizeof(unit_price), &up);
 
 	retcode = SQLFetch(hstmt);
 
