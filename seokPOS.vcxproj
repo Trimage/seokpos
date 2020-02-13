@@ -38,6 +38,8 @@
     <ClCompile Include="product_allview.cpp" />
     <ClCompile Include="product_del.cpp" />
     <ClCompile Include="product_find.cpp" />
+    <ClCompile Include="profit_insert.cpp" />
+    <ClCompile Include="receipt_info_output.cpp" />
     <ClCompile Include="receipt_order.cpp" />
     <ClCompile Include="receipt_view.cpp" />
   </ItemGroup>

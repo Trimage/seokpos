@@ -15,18 +15,6 @@ void RECEIPT::order(PODBC &podbc) {
 	vector<RECEIPT> order_list;
 	PRODUCT product1;
 
-	/*
-	int paydate;		// 결제일
-	int posnum;			// POS기 번호
-	int receiptnum;		// 영수증번호
-	string paytime;		// 결제시간
-	int no;				// 순번
-	string product_name; // 상품명
-	int unit_price;		//상품단가
-	int amount;			// 상품수량
-	int payprice;		// 금액
-	*/
-
 	while (1) {
 		cout << "\n\n================현재 장바구니 담긴 목록================\n";
 		cout << "상품명\t\t단가\t\t수량\t금액\n";
@@ -107,7 +95,7 @@ void RECEIPT::order(PODBC &podbc) {
 		}
 		else cout << "올바른 값을 입력해주세요.\n";
 	}
-
+	
 	struct tm* datetime;
 
 	time_t t;
@@ -147,12 +135,19 @@ void RECEIPT::order(PODBC &podbc) {
 
 	paytime= to_string(datetime->tm_hour) + ":" + to_string(datetime->tm_min) + ":" + to_string(datetime->tm_sec);
 
+	PROFIT profit;
+	int cnt = 1;
+	while (total_pay) {
+		total_pay = profit.insert(total_pay, cnt, *this, podbc);
+	}
+	
+
 	for (int i = 0;i < order_list.size();i++) {
 		str = "INSERT INTO 영수증정보(결제일,POS번호,영수증번호,결제시간,순번,상품번호,상품명,단가,수량,금액) VALUES (";
 		str += to_string(paydate) + ", " + to_string(order_list[i].posnum) + ", " + to_string(receiptnum) + ", '";
 		str += paytime + "', ";
 		str += to_string(i + 1) + ", " + to_string(order_list[i].product_num) + ", '" + order_list[i].product_name + "', ";
-		str += to_string(unit_price) + ", " + to_string(amount) + ", " + to_string(payprice) + ");";
+		str += to_string(order_list[i].unit_price) + ", " + to_string(order_list[i].amount) + ", " + to_string(order_list[i].payprice) + ");";
 		strcpy(cstr, str.c_str());
 
 		podbc.AllocateHandles();
