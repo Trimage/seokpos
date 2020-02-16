@@ -30,7 +30,7 @@ void RECEIPT::receiptview(PODBC &podbc) {
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "조회할 수 없는 영수증번호입니다.";
 
-	podbc.db_receipt_viewResult();
+	if (!podbc.db_receipt_viewResult()) return;
 
 
 	str = "SELECT SUM(금액) AS '총 결제 금액' FROM 영수증정보 WHERE 결제일 = ";
