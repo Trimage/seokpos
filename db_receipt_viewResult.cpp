@@ -1,6 +1,6 @@
 #include "dbbase.h"
 
-void PODBC::db_receipt_viewResult() {
+bool PODBC::db_receipt_viewResult() {
 
 	char pay_date[10];
 
@@ -41,7 +41,7 @@ void PODBC::db_receipt_viewResult() {
 
 	if (retcode == SQL_NO_DATA) {
 		cout << "\n등록되지 않은 영수증입니다.\n";
-		return;
+		return false;
 	}
 
 	string strtime = pay_time;
@@ -61,4 +61,5 @@ void PODBC::db_receipt_viewResult() {
 
 	SQLFreeStmt(hstmt, SQL_UNBIND);
 
+	return true;
 }
