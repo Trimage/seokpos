@@ -2,11 +2,11 @@
 
 void PODBC::db_receipt_sumResult() {
 
-	char paysum[20];
+	int paysum;
 
 	SQLLEN ps;
 
-	SQLBindCol(hstmt, 1, SQL_C_CHAR, &paysum, sizeof(paysum), &ps);
+	SQLBindCol(hstmt, 1, SQL_C_LONG, &paysum, sizeof(paysum), &ps);
 
 	retcode = SQLFetch(hstmt);
 
@@ -15,13 +15,13 @@ void PODBC::db_receipt_sumResult() {
 		return;
 	}
 
-	int tax = stoi(paysum) / 1.1;
+	int tax = paysum / 1.1;
 
 	cout << setw(30) << left << "부가세 과세 물품가액 : ";
 	cout << setw(35) << right << tax << '\n';
 
 	cout << setw(30) << left << "부       가       세 : ";
-	cout << setw(35) << right << stoi(paysum) - tax << '\n';
+	cout << setw(35) << right << paysum - tax << '\n';
 	cout << "-------------------------------------------------------------------\n";
 
 	cout << setw(30) << left << "합계금액 : ";
