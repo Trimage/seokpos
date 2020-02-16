@@ -16,16 +16,15 @@ void RECEIPT::order(PODBC &podbc) {
 	PRODUCT product1;
 
 	while (1) {
-		cout << "\n\n================현재 장바구니 담긴 목록================\n";
-		cout << "상품명\t\t단가\t\t수량\t금액\n";
-		for (int i = 0;i < order_list.size();i++) {
-			cout << order_list[i].product_name;
-			printf("\t%d\t\t%d\t%d\n", order_list[i].unit_price, order_list[i].amount, order_list[i].payprice);
+		cout << "\n\n=========================현재 장바구니 담긴 목록=========================\n";
+		cout << setw(30) << "상품명" << setw(20) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
+		for (int i = 0;i < order_list.size();i++) {	
+			cout << setw(30) << order_list[i].product_name << setw(20) << order_list[i].unit_price << setw(10) << order_list[i].amount << setw(20) << order_list[i].payprice << '\n';
 		}
-		cout << "=======================================================\n";
+		cout << "=========================================================================\n";
 
 		product1.allview(podbc);
-		cout << "\n\n판매할 상품번호를 입력해주세요 (결제진행 시 \"결제\", 판매취소 시 \"취소\" : ";
+		cout << "\n\n(선택을 마치고 결제를 할 경우 \"결제\", 판매취소 시 \"취소\")\n판매할 상품번호를 입력해주세요 : ";
 		cin >> menu;
 		if (menu == "취소") return;
 		else if (menu == "결제") break;
@@ -139,6 +138,7 @@ void RECEIPT::order(PODBC &podbc) {
 	int cnt = 1;
 	while (total_pay) {
 		total_pay = profit.insert(total_pay, cnt, *this, podbc);
+		cnt++;
 	}
 	
 
@@ -167,7 +167,7 @@ void RECEIPT::order(PODBC &podbc) {
 			cout << order_list[i].product_num << "재고 업데이트를 실패하였습니다.";
 	}
 
-	cout << "\n\n 결제가 완료되었습니다.";
+	cout << "\n\n 결제가 완료되었습니다.\n\n";
 
 
 	this->order_receipt(podbc,*this);

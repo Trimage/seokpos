@@ -12,7 +12,7 @@ int main() {
 	PROFIT profit;
 		
 	while (1) {
-		cout << "┌────────────────────────────┐\n";
+		cout << "\n\n┌────────────────────────────┐\n";
 		cout << setw(30) << left << "│ 메인메뉴" << "│\n";
 		cout << setw(30) << left << "│" << "│\n";
 		cout << setw(30) << left << "│ 1. 상품판매" << "│\n";
@@ -22,12 +22,18 @@ int main() {
 		cout << "└────────────────────────────┘\n";
 		cout << "메뉴 선택 : ";
 		cin >> menu; // 1:상품판매 , 2:상품관리, 3:매출확인, 4:프로그램 닫기
+
+		if (cin.fail()) {
+			cin.clear(); //오류스트림을 초기화
+			cin.ignore(256, '\n'); //입력 버퍼를 지움
+		}
+
 		if (menu == 4) break;
 
 		switch (menu) {
-		case 1:
+		case 1:				// 메인메뉴 -> 상품판매 관련메뉴
 			while (1) {
-				cout << "┌────────────────────────────┐\n";
+				cout << "\n\n┌────────────────────────────┐\n";
 				cout << setw(30) << left << "│ 메인메뉴 -> 상품판매" << "│\n";
 				cout << setw(30) << left << "│" << "│\n";
 				cout << setw(30) << left << "│ 1. 상품판매" << "│\n";
@@ -36,6 +42,11 @@ int main() {
 				cout << "└────────────────────────────┘\n";
 				cout << "메뉴 선택 : ";
 				cin >> menu; // 1:상품판매, 2.영수증조회, 3.이전메뉴로 돌아가기
+
+				if (cin.fail()) {
+					cin.clear(); //오류스트림을 초기화
+					cin.ignore(256, '\n'); //입력 버퍼를 지움
+				}
 
 				if (menu == 3) break;
 
@@ -47,15 +58,15 @@ int main() {
 					receipt.receiptview(podbc);
 					break;
 				default:
-					cout << "올바른 값을 입력해주세요.\n";
+					cout << "\n올바른 값을 입력해주세요.\n\n";
 					break;
 				}
 			}
 			break;
 
-		case 2:
+		case 2:				// 메인메뉴 -> 상품관리 관련메뉴
 			while (1) {
-				cout << "┌────────────────────────────┐\n";
+				cout << "\n\n┌────────────────────────────┐\n";
 				cout << setw(30) << left << "│ 메인메뉴 -> 상품관리" << "│\n";
 				cout << setw(30) << left << "│" << "│\n";
 				cout << setw(30) << left << "│ 1. 상품등록" << "│\n";
@@ -67,6 +78,11 @@ int main() {
 				cout << "└────────────────────────────┘\n";
 				cout << "메뉴 선택 : ";
 				cin >> menu; // 1:상품등록, 2.상품수정, 3.상품제거, 4.특정상품조회, 5.모든상품조회, 6.이전메뉴로 돌아가기
+
+				if (cin.fail()) {
+					cin.clear(); //오류스트림을 초기화
+					cin.ignore(256, '\n'); //입력 버퍼를 지움
+				}
 
 				if (menu == 6) break;
 
@@ -87,15 +103,15 @@ int main() {
 					product.allview(podbc);
 					break;
 				default:
-					cout << "올바른 값을 입력해주세요.\n";
+					cout << "\n올바른 값을 입력해주세요.\n\n";
 					break;
 				}
 			}
 			break;
 
-		case 3:
+		case 3:				// 메인메뉴 -> 매출현황 관련메뉴
 			while (1) {
-				cout << "┌────────────────────────────┐\n";
+				cout << "\n\n┌────────────────────────────┐\n";
 				cout << setw(30) << left << "│ 메인메뉴 -> 매출현황" << "│\n";
 				cout << setw(30) << left << "│" << "│\n";
 				cout << setw(30) << left << "│ 1. 금일 매출현황" << "│\n";
@@ -106,6 +122,11 @@ int main() {
 				cout << "└────────────────────────────┘\n";
 				cout << "메뉴 선택 : ";
 				cin >> menu; // 1:금일매출현황, 2.특정일 매출현황, 3.월별매출현황, 4.연별매출현황, 5.이전메뉴로 돌아가기
+
+				if (cin.fail()) {
+					cin.clear(); //오류스트림을 초기화
+					cin.ignore(256, '\n'); //입력 버퍼를 지움
+				}
 
 				if (menu == 5) break;
 
@@ -123,14 +144,14 @@ int main() {
 					profit.year_view(podbc);
 					break;
 				default:
-					cout << "올바른 값을 입력해주세요.\n";
+					cout << "\n올바른 값을 입력해주세요.\n\n";
 					break;
 				}
 			}
 			break;
 
 		default:
-			cout << "올바른 값을 입력해주세요.\n";
+			cout << "\n올바른 값을 입력해주세요.\n\n";
 			break;
 		}
 	}

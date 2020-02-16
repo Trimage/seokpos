@@ -37,7 +37,7 @@ int PROFIT::insert(int total, int cnt, RECEIPT &receipt, PODBC &podbc) {
 	str = "INSERT INTO 매출정보(결제일,POS번호,영수증번호,결제방식,결제금액,순번) VALUES(";
 	str += to_string(paydate) + ", " + to_string(posnum) + ", " + to_string(receiptnum) + ", '" + pay_type + "', " + to_string(paymoney) + ", " + to_string(cnt) + ");" ;
 	strcpy(cstr, str.c_str());
-
+	
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "등록할 수 없습니다.";
 	else cout << pay_type << "결제가 완료 되었습니다.\n";

@@ -44,7 +44,6 @@ int main() {
 		cout << "메뉴 선택 : ";
 		cin>> menu; // 1:상품판매 , 2:상품관리, 3:매출확인, 4:프로그램 닫기
 		if (cin.fail()) {
-			cout << "잘못 된 값을 입력하였습니다. 다시 입력해주세요\n";
 			cin.clear(); //오류스트림을 초기화
 			cin.ignore(256, '\n'); //입력 버퍼를 지움
 			continue;
