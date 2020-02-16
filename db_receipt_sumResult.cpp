@@ -15,27 +15,20 @@ void PODBC::db_receipt_sumResult() {
 		return;
 	}
 
-	cout.setf(ios::left);
-
-	cout << setw(15) << "합계금액 : ";
-	cout.setf(ios::right); 
-	cout << setw(15) << paysum << '\n';
-
-	cout << "----------------------------------------------------------\n";
 	int tax = stoi(paysum) / 1.1;
 
-	cout.setf(ios::left);
-	cout << setw(15) << "부가세 과세물품가액 : ";
-	cout.setf(ios::right);
-	cout << setw(15) << tax << '\n';
+	cout << setw(30) << left << "부가세 과세 물품가액 : ";
+	cout << setw(35) << right << tax << '\n';
 
-	cout.setf(ios::left);
-	cout << setw(15) << "부가세 : ";
-	cout.setf(ios::right);
-	cout << setw(15) << stoi(paysum) - tax << '\n';
-	cout << "----------------------------------------------------------\n";
+	cout << setw(30) << left << "부       가       세 : ";
+	cout << setw(35) << right << stoi(paysum) - tax << '\n';
+	cout << "-------------------------------------------------------------------\n";
 
-	cout.setf(ios::left);
+	cout << setw(30) << left << "합계금액 : ";
+	cout << setw(35) << right << paysum << '\n';
+	cout << "-------------------------------------------------------------------\n";
+
+	cout << left;
 
 	SQLFreeStmt(hstmt, SQL_UNBIND);
 
