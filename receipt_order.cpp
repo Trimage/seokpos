@@ -11,18 +11,21 @@ void RECEIPT::order(PODBC &podbc) {
 
 	cout << "POS번호를 입력하세요 : ";
 	cin >> posnum;
+	
+	if (cin.fail()) {
+		cin.clear(); //오류스트림을 초기화
+		cin.ignore(256, '\n'); //입력 버퍼를 지움
+		order(podbc);
+		return;
+	}
 
-	vector<RECEIPT> order_list;
+	cout << "\n**환불에 경우 수량에서 -숫자 형식으로 진행해주세요 ex)수량 : -10\n\n";
+
+	map<int,RECEIPT> order_list;
 	PRODUCT product1;
 
 	while (1) {
-		cout << "\n\n=========================현재 장바구니 담긴 목록=========================\n";
-		cout << setw(30) << "상품명" << setw(20) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
-		for (int i = 0;i < order_list.size();i++) {	
-			cout << setw(30) << order_list[i].product_name << setw(20) << order_list[i].unit_price << setw(10) << order_list[i].amount << setw(20) << order_list[i].payprice << '\n';
-		}
-		cout << "=========================================================================\n";
-
+		cout << "\n등록된 상품정보\n";
 		product1.allview(podbc);
 		cout << "\n\n(선택을 마치고 결제를 할 경우 \"결제\", 판매취소 시 \"취소\")\n판매할 상품번호를 입력해주세요 : ";
 		cin >> menu;
@@ -41,7 +44,7 @@ void RECEIPT::order(PODBC &podbc) {
 			cout << "조회를 실패하였습니다.";
 
 		if (podbc.db_product_viewResult() == 0) {
-			cout << "등록되지 않은 상품입니다.";
+			cout << "등록되지 않은 상품입니다.\n\n";
 			continue;
 		}
 
@@ -77,13 +80,21 @@ void RECEIPT::order(PODBC &podbc) {
 
 		payprice = unit_price * amount;
 
-		order_list.push_back(*this);
+		order_list[product_num] = *this;
 
-		total_pay += payprice;
+
+		cout << "\n\n******************************현재 장바구니 담긴 목록******************************\n";
+		cout << setw(30) << "상품명" << right << setw(20) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
+		for (auto iter = order_list.begin(); iter != order_list.end();iter++) {
+			cout << setw(30) << left << iter->second.product_name << setw(20) << right << iter->second.unit_price << setw(10) << iter->second.amount << setw(20) << iter->second.payprice << left << '\n';
+		}
+		cout << "***********************************************************************************\n";
 	}
 
+	for (auto iter = order_list.begin(); iter != order_list.end();iter++) total_pay += iter->second.payprice;
+
 	while (1) {
-		cout << "총 결제 하실 금액은 " << total_pay << "원 입니다.\n";
+		cout << "\n총 결제 하실 금액은 " << total_pay << "원 입니다.\n";
 		cout << "결제를 희망하십니까? (진행:1, 취소2) : ";
 		cin >> menu2;
 
@@ -139,35 +150,39 @@ void RECEIPT::order(PODBC &podbc) {
 	while (total_pay) {
 		total_pay = profit.insert(total_pay, cnt, *this, podbc);
 		cnt++;
+		
+		if (total_pay > 0) cout << "남은 결제 금액은 " << total_pay << "입니다.\n\n";
 	}
 	
-
-	for (int i = 0;i < order_list.size();i++) {
+	cnt = 1;
+	for (auto iter = order_list.begin(); iter != order_list.end();iter++) {
 		str = "INSERT INTO 영수증정보(결제일,POS번호,영수증번호,결제시간,순번,상품번호,상품명,단가,수량,금액) VALUES (";
-		str += to_string(paydate) + ", " + to_string(order_list[i].posnum) + ", " + to_string(receiptnum) + ", '";
+		str += to_string(paydate) + ", " + to_string(iter->second.posnum) + ", " + to_string(receiptnum) + ", '";
 		str += paytime + "', ";
-		str += to_string(i + 1) + ", " + to_string(order_list[i].product_num) + ", '" + order_list[i].product_name + "', ";
-		str += to_string(order_list[i].unit_price) + ", " + to_string(order_list[i].amount) + ", " + to_string(order_list[i].payprice) + ");";
+		str += to_string(cnt) + ", " + to_string(iter->second.product_num) + ", '" + iter->second.product_name + "', ";
+		str += to_string(iter->second.unit_price) + ", " + to_string(iter->second.amount) + ", " + to_string(iter->second.payprice) + ");";
 		strcpy(cstr, str.c_str());
 
 		podbc.AllocateHandles();
 		podbc.ConnectDataSource();
 
 		if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
-			cout << order_list[i].product_num << "는 결제를 실패하였습니다.";
+			cout << iter->second.product_num << "는 결제를 실패하였습니다.";
 
 
 		str = "UPDATE 상품정보 SET 재고=(SELECT 재고 FROM 상품정보 WHERE 상품번호=";
-		str += to_string(order_list[i].product_num) + ") - " + to_string(order_list[i].amount) + " WHERE 상품번호 = " + to_string(order_list[i].product_num) + ";";
+		str += to_string(iter->second.product_num) + ") - " + to_string(iter->second.amount) + " WHERE 상품번호 = " + to_string(iter->second.product_num) + ";";
 		strcpy(cstr, str.c_str());
 		podbc.AllocateHandles();
 		podbc.ConnectDataSource();
 
 		if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
-			cout << order_list[i].product_num << "재고 업데이트를 실패하였습니다.";
+			cout << iter->second.product_num << "재고 업데이트를 실패하였습니다.";
+
+		cnt++;
 	}
 
-	cout << "\n\n 결제가 완료되었습니다.\n\n";
+	cout << "\n****결제가 완료되었습니다.****\n\n";
 
 
 	this->order_receipt(podbc,*this);

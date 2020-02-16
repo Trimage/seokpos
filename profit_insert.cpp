@@ -16,7 +16,7 @@ int PROFIT::insert(int total, int cnt, RECEIPT &receipt, PODBC &podbc) {
 	receiptnum = receipt.info_receiptnum_output();
 	
 	while (1) {
-		cout << "결제 방식을 선택해주세요 (1:현금, 2:카드, 3:외상) : ";
+		cout << "\n결제 방식을 선택해주세요 (1:현금, 2:카드, 3:외상) : ";
 		cin >> menu;
 
 		if (menu == 1 || menu == 2 || menu==3) break;
@@ -40,7 +40,7 @@ int PROFIT::insert(int total, int cnt, RECEIPT &receipt, PODBC &podbc) {
 	
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "등록할 수 없습니다.";
-	else cout << pay_type << "결제가 완료 되었습니다.\n";
+	else cout << '\n' << pay_type << "결제가 완료 되었습니다.\n";
 
 	return total - paymoney;
 }
