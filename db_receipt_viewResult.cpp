@@ -48,10 +48,11 @@ void PODBC::db_receipt_viewResult() {
 	cout << "결제일 : " << pay_date << '\t' << pay_time;
 	cout << "\n==========================================================\n";
 	printf("상품명\t\t단가\t\t수량\t금액");
+	cout << setw(30) << "상품명" << setw(20) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
 	cout << "\n----------------------------------------------------------\n";
 	
 	while (retcode != SQL_NO_DATA) {
-		printf("%s\t%d\t\t%d\t%d\n", product_name, unit_price, amount, price);
+		cout << setw(30) << product_name << setw(20) << unit_price << setw(10) << amount << setw(20) << price << '\n';
 		retcode = SQLFetch(hstmt);
 	}
 

@@ -1,0 +1,33 @@
+#include "dbbase.h"
+#include "base.h"
+
+void RECEIPT::order_receipt(PODBC &podbc,RECEIPT &receipt) {
+	string str; //SQL명령문을 저장할 공간
+	char cstr[400]; // //SQL명령문을 실행하기 위한 캐스트
+
+	podbc.AllocateHandles();
+	podbc.ConnectDataSource();
+
+	str = "SELECT 결제일, POS번호, 영수증번호, 결제시간, 상품명, 단가, 수량, 금액 FROM 영수증정보 WHERE 결제일 = ";
+	str += to_string(receipt.paydate) + " AND POS번호 = " + to_string(receipt.posnum) + " AND 영수증번호 = " + to_string(receipt.receiptnum) + "ORDER BY 순번 ASC;";
+	strcpy(cstr, str.c_str());
+
+	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
+		cout << "조회할 수 없는 영수증번호입니다.";
+
+	podbc.db_receipt_viewResult();
+
+
+	str = "SELECT SUM(금액) AS '총 결제 금액' FROM 영수증정보 WHERE 결제일 = ";
+	str += to_string(receipt.paydate) + " AND POS번호 = " + to_string(receipt.posnum) + " AND 영수증번호 = " + to_string(receipt.receiptnum) + ";";
+	strcpy(cstr, str.c_str());
+
+	podbc.AllocateHandles();
+	podbc.ConnectDataSource();
+
+	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
+		cout << "오류가 발생하였습니다.\n";
+
+	podbc.db_receipt_sumResult();
+
+}
