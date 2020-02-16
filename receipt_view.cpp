@@ -58,7 +58,7 @@ void RECEIPT::receiptview(PODBC &podbc) {
 		cout << "오류가 발생하였습니다.\n";
 
 	cout << setw(30) << left << "현금 결제 금액 : ";
-	cout << setw(35) << right << podbc.db_profit_viewResult() << '\n';
+	cout << setw(40) << right << podbc.db_profit_viewResult() << '\n';
 	
 
 
@@ -74,7 +74,7 @@ void RECEIPT::receiptview(PODBC &podbc) {
 		cout << "오류가 발생하였습니다.\n";
 
 	cout << setw(30) << left << "카드 결제 금액 : ";
-	cout << setw(35) << right << podbc.db_profit_viewResult() << '\n';
+	cout << setw(40) << right << podbc.db_profit_viewResult() << '\n';
 
 
 
@@ -90,8 +90,8 @@ void RECEIPT::receiptview(PODBC &podbc) {
 		cout << "오류가 발생하였습니다.\n";
 
 	cout << setw(30) << left << "외상 결제 금액 : ";
-	cout << setw(35) << right << podbc.db_profit_viewResult() << '\n';
+	cout << setw(40) << right << podbc.db_profit_viewResult() << '\n';
 
-	cout << "-------------------------------------------------------------------\n";
+	cout << "------------------------------------------------------------------------\n";
 
 }

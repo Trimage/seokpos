@@ -18,15 +18,15 @@ void PODBC::db_receipt_sumResult() {
 	int tax = paysum / 1.1;
 
 	cout << setw(30) << left << "부가세 과세 물품가액 : ";
-	cout << setw(35) << right << tax << '\n';
+	cout << setw(40) << right << tax << '\n';
 
 	cout << setw(30) << left << "부       가       세 : ";
-	cout << setw(35) << right << paysum - tax << '\n';
-	cout << "-------------------------------------------------------------------\n";
+	cout << setw(40) << right << paysum - tax << '\n';
+	cout << "------------------------------------------------------------------------\n";
 
 	cout << setw(30) << left << "합계금액 : ";
-	cout << setw(35) << right << paysum << '\n';
-	cout << "-------------------------------------------------------------------\n";
+	cout << setw(40) << right << paysum << '\n';
+	cout << "------------------------------------------------------------------------\n";
 
 	cout << left;
 

@@ -10,6 +10,7 @@ void PRODUCT::addition(PODBC &podbc) {
 
 	cout << "추가할 상품 명을 입력해주세요 : ";
 	getline(cin, name);
+	getline(cin, name);
 
 	cout << "단가를 입력해주세요 : ";
 	cin >> unit_price;
