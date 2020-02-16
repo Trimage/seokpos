@@ -48,16 +48,16 @@ bool PODBC::db_receipt_viewResult() {
 
 	cout << "결제일 : " << setw(20) << pay_date << "결제시간 : " << strtime.substr(0,8) << '\n';
 	cout << "영수증번호 : " << receipt_num << '\n';
-	cout << "===================================================================\n";
-	cout << setw(30) << "상품명" << setw(20) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
-	cout << "\n-------------------------------------------------------------------\n";
+	cout << "========================================================================\n";
+	cout << setw(30) << "상품명" << right << setw(10) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
+	cout << "\n------------------------------------------------------------------------\n";
 	
 	while (retcode != SQL_NO_DATA) {
-		cout << setw(30) << product_name << setw(20) << unit_price << setw(10) << amount << setw(20) << price << '\n';
+		cout << setw(30) << left << product_name << setw(10) << right << unit_price << setw(10) << amount << setw(20) << price << left << '\n';
 		retcode = SQLFetch(hstmt);
 	}
 
-	cout << "\n-------------------------------------------------------------------\n";
+	cout << "\n------------------------------------------------------------------------\n";
 
 	SQLFreeStmt(hstmt, SQL_UNBIND);
 
