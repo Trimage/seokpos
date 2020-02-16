@@ -4,6 +4,7 @@
 #include "dbbase.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include <vector>
 
 using namespace std;
@@ -36,6 +37,7 @@ class RECEIPT {		//영수증정보
 	int payprice;		// 금액
 
 public :
+	void order_receipt(PODBC &podbc,RECEIPT &receipt);	//판매 후 영수증출력
 	void receiptview(PODBC &podbc);	//영수증조회
 	void order(PODBC &podbc);		// 상품판매
 	int info_paydate_output();		//결제일 출력

@@ -21,7 +21,8 @@ void RECEIPT::receiptview(PODBC &podbc) {
 
 	cout << "영수증번호를 입력해주세요 : ";
 	cin >> receiptnum;
-
+	
+	cout << "\n\n\n";
 	str = "SELECT 결제일, POS번호, 영수증번호, 결제시간, 상품명, 단가, 수량, 금액 FROM 영수증정보 WHERE 결제일 = ";
 	str += to_string(paydate) + " AND POS번호 = " + to_string(posnum) + " AND 영수증번호 = " + to_string(receiptnum) + "ORDER BY 순번 ASC;";
 	strcpy(cstr, str.c_str());

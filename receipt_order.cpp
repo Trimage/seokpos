@@ -168,4 +168,7 @@ void RECEIPT::order(PODBC &podbc) {
 	}
 
 	cout << "\n\n 결제가 완료되었습니다.";
+
+
+	this->order_receipt(podbc,*this);
 }

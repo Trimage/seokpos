@@ -46,6 +46,7 @@
     <ClCompile Include="profit_year_view.cpp" />
     <ClCompile Include="receipt_info_output.cpp" />
     <ClCompile Include="receipt_order.cpp" />
+    <ClCompile Include="receipt_order_receipt.cpp" />
     <ClCompile Include="receipt_view.cpp" />
   </ItemGroup>
   <ItemGroup>

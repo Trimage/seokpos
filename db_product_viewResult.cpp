@@ -26,15 +26,15 @@ int PODBC::db_product_viewResult() {
 	retcode = SQLFetch(hstmt);
 	if (retcode == SQL_NO_DATA) return cnt;
 
-	cout << "\n----------------------------------------------------------------------------\n";
-	printf("상품번호\t상품명\t\t단가\t\t재고");
+	cout << "\n--------------------------------------------------------------------------------\n";
+	cout << setw(20) << "상품번호" << setw(30) << "상품명" << setw(20) << "단가" << setw(10) << "재고" << '\n';
 
 	while (retcode != SQL_NO_DATA) {
-		printf("\n%d\t\t%s\t%d\t\t%d", product_id, product_name, product_price, product_stock);
+		cout << setw(20) << product_id << setw(30) << product_name << setw(20) << product_price << setw(10) << product_stock << '\n';
 		retcode = SQLFetch(hstmt);
 		cnt++;
 	}
-	cout << "\n----------------------------------------------------------------------------\n";
+	cout << "--------------------------------------------------------------------------------\n";
 
 	SQLFreeStmt(hstmt, SQL_UNBIND);
 

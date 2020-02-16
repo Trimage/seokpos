@@ -91,7 +91,7 @@ void PROFIT::year_view(PODBC &podbc) {
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "오류가 발생하였습니다.\n";
 
-	cout << "\n카드 환불액 : " << podbc.db_profit_viewResult();
+	cout << "\n카드 환불액 : " << podbc.db_profit_viewResult() << "\n\n";
 
 
 }

@@ -99,6 +99,9 @@
     <ClCompile Include="profit_year_view.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="receipt_order_receipt.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
