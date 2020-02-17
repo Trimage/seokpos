@@ -11,6 +11,20 @@ int main() {
 	RECEIPT receipt;
 	PROFIT profit;
 		
+	int cnt = 3;
+	while(cnt!=0) {
+		if (podbc.login()) break;
+		cnt--;
+	}
+	
+	if (cnt == 0) {
+		cout << "정보 오류 3회이상 초과로 프로그램이 종료됩니다.\n\n";
+		system("pause");
+		return 0;
+	}
+	else cout << "\n\n★로그인이 완료되었습니다.★\n\n\n";
+
+
 	while (1) {
 		cout << "\n\n┌────────────────────────────┐\n";
 		cout << setw(30) << left << "│ 메인메뉴" << "│\n";
