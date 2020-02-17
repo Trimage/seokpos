@@ -52,6 +52,7 @@ public:
 
 	void findproductResult();
 	int db_product_viewResult();
+	int db_product_numResult();
 	bool db_receipt_viewResult(int posnum);
 	void db_receipt_sumResult();
 	int db_profit_viewResult();
