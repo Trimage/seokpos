@@ -60,6 +60,8 @@ public:
 	int db_receipt_order_unitprice();
 	string db_receipt_order_productname();
 
+	bool db_receipt_listviewResult();
+
 	void DisconnectDataSource();
 
 };

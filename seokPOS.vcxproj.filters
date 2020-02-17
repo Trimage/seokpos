@@ -108,6 +108,12 @@
     <ClCompile Include="db_product_numResult.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="receipt_listview.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="db_receipt_listview.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
