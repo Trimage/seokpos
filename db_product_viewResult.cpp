@@ -28,6 +28,7 @@ int PODBC::db_product_viewResult() {
 
 	cout << "--------------------------------------------------------------------------------------------\n";
 	cout << setw(20) << "상품번호" << setw(30) << "상품명" << setw(25) <<  right << "단가"  << setw(15) << "재고" << '\n';
+	cout << "--------------------------------------------------------------------------------------------\n";
 
 	while (retcode != SQL_NO_DATA) {
 		cout << setw(20) << left << product_id << setw(30) << product_name << setw(25) << right << product_price << setw(15) << product_stock << left << '\n';

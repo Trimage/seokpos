@@ -22,7 +22,10 @@ int main() {
 		system("pause");
 		return 0;
 	}
-	else cout << "\n\n★로그인이 완료되었습니다.★\n\n\n";
+	
+
+	cout << "\n\n로그인이 완료되었습니다.\n\n\n";
+	cout << "★★SEOK_POS에 오신것을 환영합니다.★★\n\n\n";
 
 
 	while (1) {
@@ -52,17 +55,18 @@ int main() {
 				cout << setw(30) << left << "│" << "│\n";
 				cout << setw(30) << left << "│ 1. 상품판매 및 환불" << "│\n";
 				cout << setw(30) << left << "│ 2. 영수증조회" << "│\n";
-				cout << setw(30) << left << "│ 3. 이전메뉴로 돌아가기" << "│\n";
+				cout << setw(30) << left << "│ 3. 일자별 영수증목록 보기" << "│\n";
+				cout << setw(30) << left << "│ 4. 이전메뉴로 돌아가기" << "│\n";
 				cout << "└────────────────────────────┘\n";
 				cout << "메뉴 선택 : ";
-				cin >> menu; // 1:상품판매, 2.영수증조회, 3.이전메뉴로 돌아가기
+				cin >> menu; // 1:상품판매, 2.영수증조회, 3. 일자별 영수증목록 보기, 4.이전메뉴로 돌아가기
 
 				if (cin.fail()) {
 					cin.clear(); //오류스트림을 초기화
 					cin.ignore(256, '\n'); //입력 버퍼를 지움
 				}
 
-				if (menu == 3) break;
+				if (menu == 4) break;
 
 				switch (menu) {
 				case 1:
@@ -70,6 +74,9 @@ int main() {
 					break;
 				case 2:
 					receipt.receiptview(podbc);
+					break;
+				case 3:
+					receipt.listview(podbc);
 					break;
 				default:
 					cout << "\n올바른 값을 입력해주세요.\n\n";

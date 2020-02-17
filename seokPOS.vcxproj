@@ -27,6 +27,7 @@
     <ClCompile Include="db_login.cpp" />
     <ClCompile Include="db_product_numResult.cpp" />
     <ClCompile Include="db_product_viewResult.cpp" />
+    <ClCompile Include="db_receipt_listview.cpp" />
     <ClCompile Include="db_receipt_order_productname.cpp" />
     <ClCompile Include="db_receipt_order_receiptnum.cpp" />
     <ClCompile Include="db_receipt_order_unitprice.cpp" />
@@ -47,6 +48,7 @@
     <ClCompile Include="profit_month_view.cpp" />
     <ClCompile Include="profit_year_view.cpp" />
     <ClCompile Include="receipt_info_output.cpp" />
+    <ClCompile Include="receipt_listview.cpp" />
     <ClCompile Include="receipt_order.cpp" />
     <ClCompile Include="receipt_order_receipt.cpp" />
     <ClCompile Include="receipt_view.cpp" />
