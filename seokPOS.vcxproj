@@ -24,6 +24,7 @@
     <ClCompile Include="db_DisconnectDataSource.cpp" />
     <ClCompile Include="db_ExecuteStatement.cpp" />
     <ClCompile Include="db_ExecuteStatementDirect.cpp" />
+    <ClCompile Include="db_login.cpp" />
     <ClCompile Include="db_product_viewResult.cpp" />
     <ClCompile Include="db_receipt_order_productname.cpp" />
     <ClCompile Include="db_receipt_order_receiptnum.cpp" />

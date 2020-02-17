@@ -11,6 +11,13 @@
 using namespace std;
 
 class PODBC {
+
+	char db_name[20];
+
+	char id[20];
+	
+	char pw[20];
+
 	SQLHENV henv;
 
 	SQLHDBC hdbc;
@@ -32,6 +39,8 @@ public:
 	void AllocateHandles();
 
 	void ConnectDataSource();
+
+	bool login();
 
 	bool ExecuteStatementDirect(SQLCHAR* sql);
 	

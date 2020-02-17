@@ -184,6 +184,5 @@ void RECEIPT::order(PODBC &podbc) {
 
 	cout << "\n****결제가 완료되었습니다.****\n\n";
 
-
 	this->order_receipt(podbc,*this);
 }
