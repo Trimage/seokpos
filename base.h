@@ -44,6 +44,9 @@ public :
 	int info_posnum_output();		//POS기 번호 출력
 	int info_receiptnum_output();		//영수증번호 출력
 	void listview(PODBC &podbc); //영수증 목록 보기
+
+	void pos_init();			// POS번호 초기설정
+	void pos_change();			// POS번호 변경
 };
 
 class PROFIT {		//매출정보

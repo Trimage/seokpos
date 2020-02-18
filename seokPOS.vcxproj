@@ -51,6 +51,8 @@
     <ClCompile Include="receipt_listview.cpp" />
     <ClCompile Include="receipt_order.cpp" />
     <ClCompile Include="receipt_order_receipt.cpp" />
+    <ClCompile Include="receipt_pos_change.cpp" />
+    <ClCompile Include="receipt_pos_init.cpp" />
     <ClCompile Include="receipt_view.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -114,6 +114,12 @@
     <ClCompile Include="db_receipt_listview.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="receipt_pos_change.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="receipt_pos_init.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">

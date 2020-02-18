@@ -25,8 +25,10 @@ int main() {
 	
 
 	cout << "\n\n로그인이 완료되었습니다.\n\n\n";
-	cout << "★★SEOK_POS에 오신것을 환영합니다.★★\n\n\n";
 
+	receipt.pos_init();
+
+	cout << "★★SEOK_POS에 오신것을 환영합니다.★★\n\n\n";
 
 	while (1) {
 		cout << "\n\n┌────────────────────────────┐\n";
@@ -35,17 +37,18 @@ int main() {
 		cout << setw(30) << left << "│ 1. 상품판매" << "│\n";
 		cout << setw(30) << left << "│ 2. 상품관리" << "│\n";
 		cout << setw(30) << left << "│ 3. 매출현황" << "│\n";
-		cout << setw(30) << left << "│ 4. 프로그램 닫기" << "│\n";
+		cout << setw(30) << left << "│ 4. 환경설정" << "│\n";
+		cout << setw(30) << left << "│ 5. 프로그램 닫기" << "│\n";
 		cout << "└────────────────────────────┘\n";
 		cout << "메뉴 선택 : ";
-		cin >> menu; // 1:상품판매 , 2:상품관리, 3:매출확인, 4:프로그램 닫기
+		cin >> menu; // 1:상품판매 , 2:상품관리, 3:매출확인, 4:환경설정, 5:프로그램 닫기
 
 		if (cin.fail()) {
 			cin.clear(); //오류스트림을 초기화
 			cin.ignore(256, '\n'); //입력 버퍼를 지움
 		}
 
-		if (menu == 4) break;
+		if (menu == 5) break;
 
 		switch (menu) {
 		case 1:				// 메인메뉴 -> 상품판매 관련메뉴
@@ -171,6 +174,38 @@ int main() {
 			}
 			break;
 
+		case 4:			// 메인메뉴 -> 환경설정
+			while (1) {
+				cout << "\n\n┌────────────────────────────┐\n";
+				cout << setw(30) << left << "│ 메인메뉴 -> 환경설정" << "│\n";
+				cout << setw(30) << left << "│" << "│\n";
+				cout << setw(30) << left << "│ 1. 포스번호 변경" << "│\n";
+				cout << setw(30) << left << "│ 2. 로그인 다시하기" << "│\n";
+				cout << setw(30) << left << "│ 3. 이전메뉴로 돌아가기" << "│\n";
+				cout << "└────────────────────────────┘\n";
+				cout << "메뉴 선택 : ";
+				cin >> menu; // 1:포스번호 변경, 2.로그인 다시하기, 3.이전메뉴로 돌아가기
+
+				if (cin.fail()) {
+					cin.clear(); //오류스트림을 초기화
+					cin.ignore(256, '\n'); //입력 버퍼를 지움
+				}
+
+				if (menu == 3) break;
+
+				switch (menu) {
+				case 1:
+					receipt.pos_change();
+					break;
+				case 2:
+					break;
+				default:
+					cout << "\n올바른 값을 입력해주세요.\n\n";
+					break;
+				}
+			}
+			break;
+		
 		default:
 			cout << "\n올바른 값을 입력해주세요.\n\n";
 			break;
