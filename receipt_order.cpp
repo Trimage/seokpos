@@ -104,6 +104,11 @@ void RECEIPT::order(PODBC &podbc) {
 		else cout << "올바른 값을 입력해주세요.\n";
 	}
 	
+	if (order_list.size()==0) {
+		cout << "\n\n선택한 상품이 없어 결제가 취소되었습니다.\n\n";
+		return;
+	}
+
 	struct tm* datetime;
 
 	time_t t;
