@@ -6,6 +6,7 @@ void RECEIPT::order(PODBC &podbc) {
 	char cstr[500]; // //SQL명령문을 실행하기 위한 캐스트
 	string menu; //상품번호가 아닌 "결제" || "취소" 입력시 그에 대한 처리하기
 	int menu2; //총결제금액 출력 후 최종 결제 진행시 1 취소는 2
+	bool receipt_out_check; //최종 결제 후 영수증 출력여부
 
 	int total_pay = 0; //총 결제 금액 출력용
 
@@ -184,5 +185,11 @@ void RECEIPT::order(PODBC &podbc) {
 
 	cout << "\n****결제가 완료되었습니다.****\n\n";
 
-	this->order_receipt(podbc,*this);
+	cout << "영수증을 출력하시겠습니까? (출력은 1, 아닌경우 0) : ";
+	cin >> receipt_out_check;
+	
+	cout << "\n\n\n";
+
+	if(receipt_out_check) this->order_receipt(podbc,*this);
+
 }
