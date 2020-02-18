@@ -9,9 +9,6 @@ void RECEIPT::order(PODBC &podbc) {
 	bool receipt_out_check; //최종 결제 후 영수증 출력여부
 
 	int total_pay = 0; //총 결제 금액 출력용
-
-	cout << "POS번호를 입력하세요 : ";
-	cin >> posnum;
 	
 	if (cin.fail()) {
 		cin.clear(); //오류스트림을 초기화
