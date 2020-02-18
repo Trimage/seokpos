@@ -62,6 +62,8 @@ public:
 
 	bool db_receipt_listviewResult();
 
+	void db_login_info();
+
 	void DisconnectDataSource();
 
 };

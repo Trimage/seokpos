@@ -149,7 +149,7 @@ void RECEIPT::order(PODBC &podbc) {
 		total_pay = profit.insert(total_pay, cnt, *this, podbc);
 		cnt++;
 		
-		if (total_pay > 0) cout << "남은 결제 금액은 " << total_pay << "입니다.\n\n";
+		if (total_pay > 0) cout << "남은 결제 금액은 " << total_pay << "원 입니다.\n\n";
 	}
 	
 	cnt = 1;

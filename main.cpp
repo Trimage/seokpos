@@ -180,11 +180,11 @@ int main() {
 				cout << setw(30) << left << "│ 메인메뉴 -> 환경설정" << "│\n";
 				cout << setw(30) << left << "│" << "│\n";
 				cout << setw(30) << left << "│ 1. 포스번호 변경" << "│\n";
-				cout << setw(30) << left << "│ 2. 로그인 다시하기" << "│\n";
+				cout << setw(30) << left << "│ 2. 로그인 정보 확인" << "│\n";
 				cout << setw(30) << left << "│ 3. 이전메뉴로 돌아가기" << "│\n";
 				cout << "└────────────────────────────┘\n";
 				cout << "메뉴 선택 : ";
-				cin >> menu; // 1:포스번호 변경, 2.로그인 다시하기, 3.이전메뉴로 돌아가기
+				cin >> menu; // 1:포스번호 변경, 2.로그인 정보 확인, 3.이전메뉴로 돌아가기
 
 				if (cin.fail()) {
 					cin.clear(); //오류스트림을 초기화
@@ -198,6 +198,7 @@ int main() {
 					receipt.pos_change();
 					break;
 				case 2:
+					podbc.db_login_info();
 					break;
 				default:
 					cout << "\n올바른 값을 입력해주세요.\n\n";
