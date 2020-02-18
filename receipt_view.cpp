@@ -57,11 +57,11 @@ void RECEIPT::receiptview(PODBC &podbc) {
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "오류가 발생하였습니다.\n";
 
-	cout << setw(30) << left << "현금 결제 금액 : ";
-	cout << setw(40) << right << podbc.db_profit_viewResult() << '\n';
-	
-
-
+	payprice = podbc.db_profit_viewResult();
+	if (payprice != 0) {
+		cout << setw(30) << left << "현금 결제 금액 : ";
+		cout << setw(40) << right << payprice << '\n';
+	}
 
 	str = "SELECT SUM(결제금액) AS '총 결제 금액' FROM 매출정보 WHERE 결제일 = ";
 	str += to_string(paydate) + " AND POS번호 = " + to_string(posnum) + " AND 영수증번호 = " + to_string(receiptnum) + " AND 결제방식 = '카드';";
@@ -73,9 +73,11 @@ void RECEIPT::receiptview(PODBC &podbc) {
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "오류가 발생하였습니다.\n";
 
-	cout << setw(30) << left << "카드 결제 금액 : ";
-	cout << setw(40) << right << podbc.db_profit_viewResult() << '\n';
-
+	payprice = podbc.db_profit_viewResult();
+	if (payprice != 0) {
+		cout << setw(30) << left << "카드 결제 금액 : ";
+		cout << setw(40) << right << payprice << '\n';
+	}
 
 
 
@@ -89,8 +91,11 @@ void RECEIPT::receiptview(PODBC &podbc) {
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "오류가 발생하였습니다.\n";
 
-	cout << setw(30) << left << "외상 결제 금액 : ";
-	cout << setw(40) << right << podbc.db_profit_viewResult() << '\n';
+	payprice = podbc.db_profit_viewResult();
+	if (payprice != 0) {
+		cout << setw(30) << left << "외상 결제 금액 : ";
+		cout << setw(40) << right << payprice << '\n';
+	}
 
 	cout << "------------------------------------------------------------------------\n";
 

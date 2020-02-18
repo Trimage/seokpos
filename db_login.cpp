@@ -5,7 +5,7 @@ bool PODBC::login() {
 	string str; //SQL명령문을 저장할 공간
 	char cstr[500]; // //SQL명령문을 실행하기 위한 캐스트
 
-	cout << "회사명을 입력해주세요 : ";
+	cout << "업체명을 입력해주세요 : ";
 	cin >> db_name;
 	
 	cout << "아이디를 입력해주세요 : ";
