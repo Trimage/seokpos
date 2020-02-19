@@ -181,17 +181,18 @@ int main() {
 				cout << setw(30) << left << "│" << "│\n";
 				cout << setw(30) << left << "│ 1. 포스번호 변경" << "│\n";
 				cout << setw(30) << left << "│ 2. 로그인 정보 확인" << "│\n";
-				cout << setw(30) << left << "│ 3. 이전메뉴로 돌아가기" << "│\n";
+				cout << setw(30) << left << "│ 3. 다른 계정으로 로그인하기" << "│\n";
+				cout << setw(30) << left << "│ 4. 이전메뉴로 돌아가기" << "│\n";
 				cout << "└────────────────────────────┘\n";
 				cout << "메뉴 선택 : ";
-				cin >> menu; // 1:포스번호 변경, 2.로그인 정보 확인, 3.이전메뉴로 돌아가기
+				cin >> menu; // 1:포스번호 변경, 2.로그인 정보 확인, 3.다른 계정으로 로그인하기, 4.이전메뉴로 돌아가기
 
 				if (cin.fail()) {
 					cin.clear(); //오류스트림을 초기화
 					cin.ignore(256, '\n'); //입력 버퍼를 지움
 				}
 
-				if (menu == 3) break;
+				if (menu == 4) break;
 
 				switch (menu) {
 				case 1:
@@ -200,6 +201,19 @@ int main() {
 				case 2:
 					podbc.db_login_info();
 					break;
+				case 3:
+				{
+					PODBC account_tmp;
+					if (account_tmp.login()) {
+						podbc = account_tmp;
+						system("cls");
+						podbc.db_login_info();
+						cout << "\n위 로그인정보로 계정이 변경되었습니다.\n\n";
+					}
+					else cout << "계정 변경이 실패하였습니다. 기존 계정으로 로그인을 유지합니다.\n";
+					break;
+				}
+
 				default:
 					cout << "\n올바른 값을 입력해주세요.\n\n";
 					break;
