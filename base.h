@@ -47,6 +47,9 @@ public :
 
 	void pos_init();			// POS번호 초기설정
 	void pos_change();			// POS번호 변경
+
+	void order_state(PODBC &podbc);			// 판매량 추이 보기
+	void sale_state(PODBC &podbc);					// 매출 추이 보기
 };
 
 class PROFIT {		//매출정보
