@@ -48,8 +48,10 @@ public :
 	void pos_init();			// POS번호 초기설정
 	void pos_change();			// POS번호 변경
 
-	void order_state(PODBC &podbc);			// 판매량 추이 보기
-	void sale_state(PODBC &podbc);					// 매출 추이 보기
+	void current_state(PODBC &podbc);			// 금일 판매량 조회
+	void day_state(PODBC &podbc);			// 일별 판매량 조회
+	void month_state(PODBC &podbc);			// 월별 판매량 조회
+	void year_state(PODBC &podbc);			// 년별 판매량 조회
 };
 
 class PROFIT {		//매출정보
@@ -61,10 +63,10 @@ class PROFIT {		//매출정보
 
 public :
 	int insert(int total, int cnt, RECEIPT &receipt, PODBC &podbc);	// 매출정보등록
-	void current_view(PODBC &podbc); // 금일매출조회
-	void day_view(PODBC &podbc);	// 일별매출조회
-	void month_view(PODBC &podbc);	// 월별매출조회
-	void year_view(PODBC &podbc);	// 년별매출조회
+	void current_view(PODBC &podbc); // 금일 매출 조회
+	void day_view(PODBC &podbc);	// 일별 매출 조회
+	void month_view(PODBC &podbc);	// 월별 매출 조회
+	void year_view(PODBC &podbc);	// 년별 매출 조회
 };
 
 #endif
