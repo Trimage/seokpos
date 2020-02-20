@@ -41,7 +41,7 @@ void PROFIT::current_view(PODBC &podbc) {
 	if (!podbc.ExecuteStatementDirect((SQLCHAR*)cstr))
 		cout << "오류가 발생하였습니다.\n";
 
-	cout << paydate << " 오늘의 날짜 기준 매출 현황입니다.\n";
+	cout << "\n" << strdate.substr(0, 4) << "년 " << strdate.substr(4, 2) << "월 " << strdate.substr(6, 2) << "일 오늘 기준 판매량 추이입니다. \n";
 	cout << "총 매출액 : " << podbc.db_profit_viewResult();
 	
 

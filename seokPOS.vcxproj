@@ -49,15 +49,18 @@
     <ClCompile Include="profit_insert.cpp" />
     <ClCompile Include="profit_month_view.cpp" />
     <ClCompile Include="profit_year_view.cpp" />
+    <ClCompile Include="receipt_current_state.cpp" />
     <ClCompile Include="receipt_info_output.cpp" />
     <ClCompile Include="receipt_listview.cpp" />
+    <ClCompile Include="receipt_month_state.cpp" />
     <ClCompile Include="receipt_order.cpp" />
     <ClCompile Include="receipt_order_receipt.cpp" />
-    <ClCompile Include="receipt_order_state.cpp" />
+    <ClCompile Include="receipt_day_state.cpp" />
     <ClCompile Include="receipt_pos_change.cpp" />
     <ClCompile Include="receipt_pos_init.cpp" />
     <ClCompile Include="receipt_sale_state.cpp" />
     <ClCompile Include="receipt_view.cpp" />
+    <ClCompile Include="receipt_year_state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h" />

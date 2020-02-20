@@ -20,7 +20,7 @@ void PODBC::db_receipt_sale_stateResult() {
 
 	retcode = SQLFetch(hstmt);
 
-	if (retcode == SQL_NO_DATA) {
+	if (retcode == SQL_NO_DATA || amount==0) {
 		cout << "\n조회되는 내역이 없습니다.\n";
 		return;
 	}

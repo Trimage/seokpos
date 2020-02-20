@@ -1,6 +1,6 @@
 #include "base.h"
 
-void RECEIPT::order_state(PODBC &podbc) {
+void RECEIPT::day_state(PODBC &podbc) {
 	string str; //SQL명령문을 저장할 공간
 	char cstr[500]; // //SQL명령문을 실행하기 위한 캐스트
 
@@ -9,7 +9,7 @@ void RECEIPT::order_state(PODBC &podbc) {
 
 	if (to_string(paydate).size() != 8) {
 		cout << "잘못된 값입니다. 다시 입력해주세요\n\n";
-		order_state(podbc);
+		day_state(podbc);
 		return;
 	}
 

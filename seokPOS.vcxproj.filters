@@ -123,13 +123,22 @@
     <ClCompile Include="db_login_info.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="receipt_order_state.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="receipt_sale_state.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="db_receipt_sale_stateResult.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="receipt_day_state.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="receipt_month_state.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="receipt_year_state.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="receipt_current_state.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
