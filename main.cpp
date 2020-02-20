@@ -37,18 +37,19 @@ int main() {
 		cout << setw(30) << left << "│ 1. 상품판매" << "│\n";
 		cout << setw(30) << left << "│ 2. 상품관리" << "│\n";
 		cout << setw(30) << left << "│ 3. 매출현황" << "│\n";
-		cout << setw(30) << left << "│ 4. 환경설정" << "│\n";
-		cout << setw(30) << left << "│ 5. 프로그램 닫기" << "│\n";
+		cout << setw(30) << left << "│ 4. 통계" << "│\n";
+		cout << setw(30) << left << "│ 5. 환경설정" << "│\n";
+		cout << setw(30) << left << "│ 6. 프로그램 닫기" << "│\n";
 		cout << "└────────────────────────────┘\n";
 		cout << "메뉴 선택 : ";
-		cin >> menu; // 1:상품판매 , 2:상품관리, 3:매출확인, 4:환경설정, 5:프로그램 닫기
+		cin >> menu; // 1:상품판매 , 2:상품관리, 3:매출확인, 4:통계, 5:환경설정, 6:프로그램 닫기
 
 		if (cin.fail()) {
 			cin.clear(); //오류스트림을 초기화
 			cin.ignore(256, '\n'); //입력 버퍼를 지움
 		}
 
-		if (menu == 5) break;
+		if (menu == 6) break;
 
 		switch (menu) {
 		case 1:				// 메인메뉴 -> 상품판매 관련메뉴
@@ -174,7 +175,40 @@ int main() {
 			}
 			break;
 
-		case 4:			// 메인메뉴 -> 환경설정
+		case 4:				// 메인메뉴 -> 통계
+			while (1) {
+				cout << "\n\n┌────────────────────────────┐\n";
+				cout << setw(30) << left << "│ 메인메뉴 -> 통계" << "│\n";
+				cout << setw(30) << left << "│" << "│\n";
+				cout << setw(30) << left << "│ 1. 판매량 추이" << "│\n";
+				cout << setw(30) << left << "│ 2. 매출추이" << "│\n";
+				cout << setw(30) << left << "│ 3. 이전메뉴로 돌아가기" << "│\n";
+				cout << "└────────────────────────────┘\n";
+				cout << "메뉴 선택 : ";
+				cin >> menu; // 1:판매량 추이, 2.매출추이, 3.이전메뉴로 돌아가기
+
+				if (cin.fail()) {
+					cin.clear(); //오류스트림을 초기화
+					cin.ignore(256, '\n'); //입력 버퍼를 지움
+				}
+
+				if (menu == 3) break;
+
+				switch (menu) {
+				case 1:
+					receipt.order_state(podbc);
+					break;
+				case 2:
+					profit.day_view(podbc);
+					break;
+				default:
+					cout << "\n올바른 값을 입력해주세요.\n\n";
+					break;
+				}
+			}
+			break;
+
+		case 5:			// 메인메뉴 -> 환경설정
 			while (1) {
 				cout << "\n\n┌────────────────────────────┐\n";
 				cout << setw(30) << left << "│ 메인메뉴 -> 환경설정" << "│\n";

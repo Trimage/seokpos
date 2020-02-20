@@ -32,6 +32,7 @@
     <ClCompile Include="db_receipt_order_productname.cpp" />
     <ClCompile Include="db_receipt_order_receiptnum.cpp" />
     <ClCompile Include="db_receipt_order_unitprice.cpp" />
+    <ClCompile Include="db_receipt_sale_stateResult.cpp" />
     <ClCompile Include="db_receipt_sumResult.cpp" />
     <ClCompile Include="db_receipt_viewResult.cpp" />
     <ClCompile Include="db_profit_viewResult.cpp" />
@@ -52,8 +53,10 @@
     <ClCompile Include="receipt_listview.cpp" />
     <ClCompile Include="receipt_order.cpp" />
     <ClCompile Include="receipt_order_receipt.cpp" />
+    <ClCompile Include="receipt_order_state.cpp" />
     <ClCompile Include="receipt_pos_change.cpp" />
     <ClCompile Include="receipt_pos_init.cpp" />
+    <ClCompile Include="receipt_sale_state.cpp" />
     <ClCompile Include="receipt_view.cpp" />
   </ItemGroup>
   <ItemGroup>
