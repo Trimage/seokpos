@@ -23,7 +23,7 @@ bool PODBC::login() {
 	strcpy(cstr, str.c_str());
 
 	if (!ExecuteStatementDirect((SQLCHAR*)cstr)) {
-		cout << "로그인이 실패하였습니다.\n회사명, 아이디, 비밀번호의 정보를 다시 확인해주세요\n\n";
+		cout << "\n로그인에 실패하였습니다.\n회사명, 아이디, 비밀번호의 정보를 다시 확인해주세요\n\n";
 		return false;
 	}
 
