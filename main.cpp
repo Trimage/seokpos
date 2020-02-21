@@ -11,14 +11,15 @@ int main() {
 	RECEIPT receipt;
 	PROFIT profit;
 		
-	int cnt = 3;
-	while(cnt!=0) {
+	int cnt = 0;
+	while(cnt!=3) {
 		if (podbc.login()) break;
-		cnt--;
+
+		cnt++;
 	}
 	
-	if (cnt == 0) {
-		cout << "정보 오류 3회이상 초과로 프로그램이 종료됩니다.\n\n";
+	if (cnt == 3) {
+		cout << "로그인 실패 3회 이상으로 인해 프로그램이 종료됩니다.\n\n";
 		system("pause");
 		return 0;
 	}

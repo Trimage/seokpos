@@ -31,7 +31,7 @@ void PODBC::AllocateHandles() {
 
 				SQLGetDiagRec(SQL_HANDLE_DBC, hdbc, ++rec, state, &native, message, sizeof(message), &length);
 
-				printf("%s : %ld : %ld : %s\n", state, rec, native, message);
+				// printf("%s : %ld : %ld : %s\n", state, rec, native, message);
 
 			}
 
@@ -41,7 +41,7 @@ void PODBC::AllocateHandles() {
 
 			SQLGetDiagRec(SQL_HANDLE_ENV, henv, ++rec, state, &native, message, sizeof(message), &length);
 
-			printf("%s : %ld : %ld : %s\n", state, rec, native, message);
+			// printf("%s : %ld : %ld : %s\n", state, rec, native, message);
 
 		}
 
@@ -51,7 +51,7 @@ void PODBC::AllocateHandles() {
 
 		SQLGetDiagRec(SQL_HANDLE_ENV, henv, rec, state, &native, message, sizeof(message), &length);
 
-		printf("%s : %ld : %ld : %s\n", state, rec, native, message);
+		// printf("%s : %ld : %ld : %s\n", state, rec, native, message);
 
 	}
 

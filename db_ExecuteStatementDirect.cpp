@@ -14,7 +14,7 @@ bool PODBC::ExecuteStatementDirect(SQLCHAR* sql) {
 
 		SQLGetDiagRec(SQL_HANDLE_DBC, hdbc, ++rec, state, &native, message, sizeof(message), &length);
 
-		printf("%s : %ld : %ld : %s\n", state, rec, native, message);
+		// printf("%s : %ld : %ld : %s\n", state, rec, native, message);
 		
 		return false;
 
@@ -34,7 +34,7 @@ bool PODBC::ExecuteStatementDirect(SQLCHAR* sql) {
 
 		SQLGetDiagRec(SQL_HANDLE_STMT, hstmt, ++rec, state, &native, message, sizeof(message), &length);
 
-		printf("%s : %ld : %ld : %s\n", state, rec, native, message);
+		// printf("%s : %ld : %ld : %s\n", state, rec, native, message);
 		return false;
 
 	}
