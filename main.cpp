@@ -276,7 +276,6 @@ int main() {
 					PODBC account_tmp;
 					if (account_tmp.login()) {
 						podbc = account_tmp;
-						system("cls");
 						podbc.db_login_info();
 						cout << "\n위 로그인정보로 계정이 변경되었습니다.\n\n";
 					}

@@ -24,7 +24,16 @@ void RECEIPT::order(PODBC &podbc) {
 
 	while (1) {
 		cout << "\n등록된 상품정보\n";
+
 		product1.allview(podbc);
+
+		cout << "\n\n******************************현재 장바구니 담긴 목록******************************\n";
+		cout << setw(30) << "상품명" << right << setw(20) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
+		for (auto iter = order_list.begin(); iter != order_list.end();iter++) {
+			cout << setw(30) << left << iter->second.product_name << setw(20) << right << iter->second.unit_price << setw(10) << iter->second.amount << setw(20) << iter->second.payprice << left << '\n';
+		}
+		cout << "***********************************************************************************\n";
+
 		cout << "\n\n(선택을 마치고 결제를 할 경우 \"결제\", 판매취소 시 \"취소\")\n판매할 상품번호를 입력해주세요 : ";
 		cin >> menu;
 		if (menu == "취소") return;
@@ -81,12 +90,7 @@ void RECEIPT::order(PODBC &podbc) {
 		order_list[product_num] = *this;
 
 
-		cout << "\n\n******************************현재 장바구니 담긴 목록******************************\n";
-		cout << setw(30) << "상품명" << right << setw(20) << "단가" << setw(10) << "수량" << setw(20) << "금액" << '\n';
-		for (auto iter = order_list.begin(); iter != order_list.end();iter++) {
-			cout << setw(30) << left << iter->second.product_name << setw(20) << right << iter->second.unit_price << setw(10) << iter->second.amount << setw(20) << iter->second.payprice << left << '\n';
-		}
-		cout << "***********************************************************************************\n";
+
 	}
 
 	for (auto iter = order_list.begin(); iter != order_list.end();iter++) total_pay += iter->second.payprice;
