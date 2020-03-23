@@ -38,6 +38,7 @@
     <ClCompile Include="db_profit_viewResult.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="db_PrepareStatement.cpp" />
+    <ClCompile Include="menu_output.cpp" />
     <ClCompile Include="product_adjust.cpp" />
     <ClCompile Include="product_addtion.cpp" />
     <ClCompile Include="db_RetrieveResult.cpp" />
@@ -64,6 +65,7 @@
   <ItemGroup>
     <ClInclude Include="base.h" />
     <ClInclude Include="dbbase.h" />
+    <ClInclude Include="menu.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

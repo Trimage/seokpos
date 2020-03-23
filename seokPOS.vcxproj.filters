@@ -138,12 +138,18 @@
     <ClCompile Include="receipt_current_state.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="menu_output.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="dbbase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
